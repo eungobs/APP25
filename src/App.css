@@ -1,0 +1,101 @@
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Main container */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px; /* slightly smaller for better responsiveness */
+  max-width: 80%; /* prevent overflowing on small screens */
+  background-color: #324a91; /* Deep blue */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  flex-shrink: 0; /* prevent shrinking */
+  position: fixed; /* keep sidebar fixed on side */
+  height: 100%;
+  z-index: 1000;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+}
+
+/* Sidebar header/logo */
+.sidebar-header {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation links */
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #3b5b9f;
+}
+
+/* Icons in sidebar */
+.sidebar i {
+  margin-right: 10px;
+}
+
+/* Main content area - add margin-left to account for sidebar width */
+.content-area {
+  margin-left: 250px; /* same as sidebar width */
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+  border-radius: 8px;
+  transition: margin-left 0.3s ease;
+  width: calc(100% - 250px);
+}
+
+/* Header styles inside content area, optional */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h2 {
+  font-size: 24px;
+  color: #222;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  /* Collapse sidebar into top menu or hide it */
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 10px 0;
